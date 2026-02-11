@@ -225,22 +225,26 @@
 
                             <div class="form-group">
                                 <label class="form-label">Categoria di interesse</label>
-                                <select class="form-control" name="categoria">
+                                <select class="form-control" name="categoria" id="contact-categoria">
                                     <option value="">Seleziona...</option>
                                     <option value="grasso">Grasso</option>
                                     <option value="gasolio">Gasolio</option>
-                                    <option value="urea">Urea/AdBlue</option>
                                     <option value="olio">Olio</option>
-                                    <option value="acqua">Acqua</option>
+                                    <option value="urea">Urea/AdBlue</option>
                                     <option value="antigelo">Antigelo</option>
-                                    <option value="lavavetri">Lavavetri</option>
+                                    <option value="acqua-lavavetri">Acqua e Lavavetri</option>
                                     <option value="accessori">Accessori</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
+                                <label class="form-label">Oggetto</label>
+                                <input type="text" class="form-control" name="oggetto" id="contact-oggetto" placeholder="Es. Richiesta info prodotto...">
+                            </div>
+
+                            <div class="form-group">
                                 <label class="form-label">Messaggio *</label>
-                                <textarea class="form-control" name="messaggio" rows="5" required placeholder="Descrivi la tua richiesta..."></textarea>
+                                <textarea class="form-control" name="messaggio" id="contact-messaggio" rows="5" required placeholder="Descrivi la tua richiesta..."></textarea>
                             </div>
 
                             <div class="form-group">
@@ -254,6 +258,69 @@
                                 <i class="fas fa-paper-plane"></i> Invia Richiesta
                             </button>
                         </form>
+
+                        <script>
+                        (function() {
+                            const params = new URLSearchParams(window.location.search);
+                            const nome = params.get('nome');
+                            const codice = params.get('codice');
+                            const variant = params.get('variant');
+                            const cat = params.get('cat');
+
+                            if (nome || codice || cat) {
+                                const oggetto = document.getElementById('contact-oggetto');
+                                const messaggio = document.getElementById('contact-messaggio');
+                                const catSelect = document.getElementById('contact-categoria');
+
+                                // Mappa nomi categorie leggibili
+                                const catNames = {
+                                    'grasso': 'Grasso',
+                                    'gasolio': 'Gasolio',
+                                    'olio': 'Olio',
+                                    'urea': 'Urea/AdBlue',
+                                    'antigelo': 'Antigelo',
+                                    'acqua-lavavetri': 'Acqua e Lavavetri',
+                                    'accessori': 'Accessori'
+                                };
+
+                                // Pre-seleziona categoria
+                                if (cat && catSelect) {
+                                    const opt = catSelect.querySelector('option[value="' + cat + '"]');
+                                    if (opt) {
+                                        catSelect.value = cat;
+                                    }
+                                }
+
+                                // Componi oggetto
+                                let subject = 'Richiesta informazioni';
+                                if (codice && nome) {
+                                    subject += `: ${codice} - ${nome}`;
+                                } else if (codice) {
+                                    subject += `: ${codice}`;
+                                } else if (nome) {
+                                    subject += `: ${nome}`;
+                                }
+                                if (oggetto) oggetto.value = subject;
+
+                                // Componi messaggio pre-compilato
+                                if (nome || codice) {
+                                    let msg = 'Buongiorno,\n\n';
+                                    msg += 'vorrei ricevere informazioni sul prodotto:\n';
+                                    if (codice) msg += `• Codice: ${codice}\n`;
+                                    if (nome) msg += `• Prodotto: ${nome}\n`;
+                                    if (variant && variant !== codice) msg += `• Variante: ${variant}\n`;
+                                    if (cat && catNames[cat]) msg += `• Categoria: ${catNames[cat]}\n`;
+                                    msg += '\nIn particolare vorrei sapere:\n\n\nGrazie.';
+                                    if (messaggio) messaggio.value = msg;
+                                }
+
+                                // Scroll al form
+                                setTimeout(function() {
+                                    document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                }, 300);
+                            }
+                        })();
+                        </script>
                     </div>
                 </div>
             </div>

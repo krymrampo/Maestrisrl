@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /**
- * Mobile Menu Toggle
+ * Mobile Menu Toggle — Sidebar laterale
  */
 function initMobileMenu() {
     const menuToggle = document.querySelector('.menu-toggle');
@@ -28,33 +28,97 @@ function initMobileMenu() {
 
     if (!menuToggle || !nav) return;
 
-    menuToggle.addEventListener('click', function() {
-        nav.classList.toggle('active');
-        menuToggle.classList.toggle('active');
+    // Crea overlay
+    let overlay = document.querySelector('.nav-overlay');
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.classList.add('nav-overlay');
+        document.body.appendChild(overlay);
+    }
 
-        // Animate hamburger
-        const spans = menuToggle.querySelectorAll('span');
-        if (menuToggle.classList.contains('active')) {
-            spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-            spans[1].style.opacity = '0';
-            spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+    // Crea brand dentro sidebar
+    if (!nav.querySelector('.sidebar-brand')) {
+        const brand = document.createElement('div');
+        brand.classList.add('sidebar-brand');
+        const logoImg = document.querySelector('.logo img');
+        if (logoImg) {
+            brand.innerHTML = `<img src="${logoImg.src}" alt="Maestri Srl"><span class="sidebar-brand-text">MAESTRI</span>`;
         } else {
-            spans[0].style.transform = '';
-            spans[1].style.opacity = '';
-            spans[2].style.transform = '';
+            brand.innerHTML = `<span class="sidebar-brand-text">MAESTRI</span>`;
+        }
+        nav.insertBefore(brand, nav.firstChild);
+    }
+
+    // Crea pulsante chiusura
+    if (!nav.querySelector('.sidebar-close')) {
+        const closeBtn = document.createElement('button');
+        closeBtn.classList.add('sidebar-close');
+        closeBtn.setAttribute('aria-label', 'Chiudi menu');
+        closeBtn.innerHTML = '<i class="fas fa-times"></i>';
+        nav.insertBefore(closeBtn, nav.firstChild);
+
+        closeBtn.addEventListener('click', closeSidebar);
+    }
+
+    // Crea link Area Riservata in fondo alla sidebar
+    if (!nav.querySelector('.sidebar-auth')) {
+        const authLink = document.querySelector('.header .auth-link');
+        if (authLink) {
+            const sidebarAuth = document.createElement('a');
+            sidebarAuth.classList.add('sidebar-auth');
+            sidebarAuth.href = authLink.href;
+            sidebarAuth.innerHTML = '<i class="fas fa-lock"></i> Area Riservata';
+            nav.appendChild(sidebarAuth);
+        }
+    }
+
+    function openSidebar() {
+        nav.classList.add('active');
+        overlay.classList.add('active');
+        menuToggle.classList.add('active');
+        document.body.classList.add('menu-open');
+
+        // Animate hamburger to X
+        const spans = menuToggle.querySelectorAll('span');
+        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+    }
+
+    function closeSidebar() {
+        nav.classList.remove('active');
+        overlay.classList.remove('active');
+        menuToggle.classList.remove('active');
+        document.body.classList.remove('menu-open');
+
+        // Reset hamburger
+        const spans = menuToggle.querySelectorAll('span');
+        spans[0].style.transform = '';
+        spans[1].style.opacity = '';
+        spans[2].style.transform = '';
+    }
+
+    menuToggle.addEventListener('click', function() {
+        if (nav.classList.contains('active')) {
+            closeSidebar();
+        } else {
+            openSidebar();
         }
     });
 
-    // Close menu when clicking on a link
+    // Chiudi cliccando sull'overlay
+    overlay.addEventListener('click', closeSidebar);
+
+    // Chiudi con tasto Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && nav.classList.contains('active')) {
+            closeSidebar();
+        }
+    });
+
+    // Chiudi quando si clicca un link (navigazione)
     nav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            nav.classList.remove('active');
-            menuToggle.classList.remove('active');
-            menuToggle.querySelectorAll('span').forEach(span => {
-                span.style.transform = '';
-                span.style.opacity = '';
-            });
-        });
+        link.addEventListener('click', closeSidebar);
     });
 }
 

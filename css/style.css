@@ -117,7 +117,7 @@ input, textarea, select {
     height: var(--header-height);
     background: var(--background);
     box-shadow: var(--shadow-sm);
-    z-index: 1000;
+    z-index: 9999;
     transition: var(--transition);
 }
 
@@ -320,6 +320,14 @@ input, textarea, select {
     transition: var(--transition);
 }
 
+/* Sidebar elements - hidden on desktop */
+.sidebar-close,
+.sidebar-brand,
+.sidebar-auth,
+.nav-overlay {
+    display: none;
+}
+
 /* Buttons */
 .btn {
     display: inline-flex;
@@ -441,6 +449,16 @@ input, textarea, select {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+}
+
+.hero .btn-outline {
+    border-color: white;
+    color: white;
+}
+
+.hero .btn-outline:hover {
+    background: white;
+    color: var(--primary);
 }
 
 .hero-image {

@@ -252,7 +252,7 @@
                                 <i class="fas fa-download"></i> Scarica Scheda Tecnica
                             </a>
                         ` : ''}
-                        <a href="contatti.html?product=${product.id}" class="btn btn-outline btn-lg">
+                        <a href="contatti.html?product=${product.id}&nome=${encodeURIComponent(product.nome || '')}&codice=${encodeURIComponent(product.codice || '')}&cat=${encodeURIComponent(product.categoria || '')}" class="btn btn-outline btn-lg">
                             <i class="fas fa-envelope"></i> Richiedi Informazioni
                         </a>
                         ${subCount ? `
@@ -294,7 +294,7 @@
                            class="btn btn-sm btn-secondary">
                             <i class="fas fa-eye"></i> Vedi Scheda
                         </a>
-                        <a href="contatti.html?product=${product.id}&variant=${encodeURIComponent(variant.codice)}"
+                        <a href="contatti.html?product=${product.id}&variant=${encodeURIComponent(variant.codice)}&nome=${encodeURIComponent(product.nome || '')}&codice=${encodeURIComponent(variant.codice || '')}&cat=${encodeURIComponent(product.categoria || '')}"
                            class="btn btn-sm btn-outline">
                             <i class="fas fa-envelope"></i> Richiedi Info
                         </a>
@@ -577,7 +577,7 @@
                                 <i class="fas fa-download"></i> Scarica Scheda Tecnica
                             </a>
                         ` : ''}
-                        <a href="contatti.html?product=${product.id}&variant=${encodeURIComponent(variant.codice)}" class="btn btn-outline btn-lg">
+                        <a href="contatti.html?product=${product.id}&variant=${encodeURIComponent(variant.codice)}&nome=${encodeURIComponent(product.nome || '')}&codice=${encodeURIComponent(variant.codice || '')}&cat=${encodeURIComponent(product.categoria || '')}" class="btn btn-outline btn-lg">
                             <i class="fas fa-envelope"></i> Richiedi Informazioni
                         </a>
                         <button class="btn btn-ghost btn-lg pd-share-btn"

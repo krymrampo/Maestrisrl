@@ -248,11 +248,18 @@ function renderProducts() {
                         <a href="prodotto.html?id=${product.id}" class="btn btn-sm btn-secondary">
                             <i class="fas fa-eye"></i> Dettagli${subCount ? ' Varianti' : ''}
                         </a>
-                        <a href="${technicalSheet || '#'}"
-                           class="btn btn-sm btn-outline ${!technicalSheet ? 'disabled' : ''}"
-                           ${technicalSheet ? 'target="_blank" rel="noopener noreferrer"' : 'disabled'}>
-                            <i class="fas fa-download"></i> PDF
-                        </a>
+                        ${technicalSheet ? `
+                            <a href="${technicalSheet}"
+                               class="btn btn-sm btn-outline"
+                               target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-download"></i> PDF
+                            </a>
+                        ` : `
+                            <a href="contatti.html?product=${product.id}&nome=${encodeURIComponent(product.nome || '')}&codice=${encodeURIComponent(product.codice || '')}&cat=${encodeURIComponent(product.categoria || '')}"
+                               class="btn btn-sm btn-outline">
+                                <i class="fas fa-envelope"></i> Info
+                            </a>
+                        `}
                     </div>
                 </div>
             </article>
@@ -365,7 +372,7 @@ function viewProductDetail(productId) {
                             <i class="fas fa-download"></i> Scarica Scheda Tecnica
                         </a>
                     ` : ''}
-                    <a href="contatti.html?product=${product.id}" class="btn btn-outline">
+                    <a href="contatti.html?product=${product.id}&nome=${encodeURIComponent(product.nome || '')}&codice=${encodeURIComponent(product.codice || '')}&cat=${encodeURIComponent(product.categoria || '')}" class="btn btn-outline">
                         <i class="fas fa-envelope"></i> Richiedi Info
                     </a>
                 </div>
