@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Catalogo completo prodotti Maestri Srl: pompe per gasolio, olio, grasso, AdBlue, antigelo, lavavetri e accessori.">
+    <title>Catalogo Prodotti - Maestri Srl</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logo.png" alt="Maestri Srl">
+                <div class="logo-text">
+                    MAESTRI
+                    <span>OFFICINE MECCANICHE</span>
+                </div>
+            </a>
+
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li class="dropdown">
+                        <a href="prodotti.html" class="nav-link active dropdown-toggle">
+                            Prodotti <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="grasso.html" class="dropdown-item"><i class="fas fa-oil-can"></i> Grasso</a></li>
+                            <li><a href="gasolio.html" class="dropdown-item"><i class="fas fa-gas-pump"></i> Gasolio</a></li>
+                            <li><a href="olio.html" class="dropdown-item"><i class="fas fa-droplet"></i> Olio</a></li>
+                            <li><a href="urea.html" class="dropdown-item"><i class="fas fa-tint"></i> Urea/AdBlue</a></li>
+                            <li><a href="antigelo.html" class="dropdown-item"><i class="fas fa-snowflake"></i> Antigelo</a></li>
+                            <li><a href="acqua-lavavetri.html" class="dropdown-item"><i class="fas fa-water"></i> Acqua e Lavavetri</a></li>
+                            <li><a href="accessori.html" class="dropdown-item"><i class="fas fa-cogs"></i> Accessori</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="chi-siamo.html" class="nav-link">Chi Siamo</a></li>
+                    <li><a href="news.html" class="nav-link">News</a></li>
+                    <li><a href="contatti.html" class="nav-link">Contatti</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="login.html" class="btn-icon auth-link" title="Area Riservata">
+                    <i class="fas fa-lock"></i>
+                    <span>Area Riservata</span>
+                </a>
+                <a href="https://wa.me/393498393463" class="btn-icon" target="_blank" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <button class="menu-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Catalogo Prodotti</h1>
+                <p>Esplora la nostra gamma completa di sistemi per travaso e lubrificazione fluidi</p>
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="../index.html">Home</a>
+                    <span class="breadcrumb-separator">/</span>
+                    <span class="breadcrumb-current">Prodotti</span>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Categories Overview -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Seleziona una Categoria</h2>
+                    <p>Scegili la categoria di tuo interesse per visualizzare i prodotti</p>
+                </div>
+
+                <div class="cards-grid">
+                    <a href="grasso.html" class="category-card">
+                        <div class="category-icon" style="background: #fff3e0; color: #e67e22;">
+                            <i class="fas fa-oil-can"></i>
+                        </div>
+                        <h3 class="category-title">Grasso</h3>
+                        <p class="category-desc">Ingrassatori manuali, pneumatici ed elettrici per ogni applicazione</p>
+                        <span class="btn btn-sm btn-outline mt-2">Vedi prodotti</span>
+                    </a>
+
+                    <a href="gasolio.html" class="category-card">
+                        <div class="category-icon" style="background: #ffebee; color: #c0392b;">
+                            <i class="fas fa-gas-pump"></i>
+                        </div>
+                        <h3 class="category-title">Gasolio</h3>
+                        <p class="category-desc">Pompe elettriche e sistemi completi per travaso carburanti</p>
+                        <span class="btn btn-sm btn-outline mt-2">Vedi prodotti</span>
+                    </a>
+
+                    <a href="urea.html" class="category-card">
+                        <div class="category-icon" style="background: #e3f2fd; color: #3498db;">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <h3 class="category-title">Urea/AdBlue</h3>
+                        <p class="category-desc">Sistemi professionali per erogazione fluidi a base ureica</p>
+                        <span class="btn btn-sm btn-outline mt-2">Vedi prodotti</span>
+                    </a>
+
+                    <a href="olio.html" class="category-card">
+                        <div class="category-icon" style="background: #fffde7; color: #f1c40f;">
+                            <i class="fas fa-droplet"></i>
+                        </div>
+                        <h3 class="category-title">Olio</h3>
+                        <p class="category-desc">Pompe aspirazione, estrattori e sistemi travaso lubrificanti</p>
+                        <span class="btn btn-sm btn-outline mt-2">Vedi prodotti</span>
+                    </a>
+
+                    <a href="antigelo.html" class="category-card">
+                        <div class="category-icon" style="background: #e0f2f1; color: #1abc9c;">
+                            <i class="fas fa-snowflake"></i>
+                        </div>
+                        <h3 class="category-title">Antigelo</h3>
+                        <p class="category-desc">Sistemi completi per erogazione liquido refrigerante</p>
+                        <span class="btn btn-sm btn-outline mt-2">Vedi prodotti</span>
+                    </a>
+
+                    <a href="acqua-lavavetri.html" class="category-card">
+                        <div class="category-icon" style="background: #e8f4f8; color: #2980b9;">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <h3 class="category-title">Acqua e Lavavetri</h3>
+                        <p class="category-desc">Pompe pneumatiche, elettropompe e manuali per acqua, lavavetri e olio emulsionabile</p>
+                        <span class="btn btn-sm btn-outline mt-2">Vedi prodotti</span>
+                    </a>
+
+                    <a href="accessori.html" class="category-card">
+                        <div class="category-icon" style="background: #eceff1; color: #7f8c8d;">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3 class="category-title">Accessori</h3>
+                        <p class="category-desc">Avvolgitubi, pistole, contalitri e ricambi</p>
+                        <span class="btn btn-sm btn-outline mt-2">Vedi prodotti</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <h2>Non Trovi quello che Cerchi?</h2>
+                <p>Contattaci per informazioni su prodotti personalizzati o soluzioni speciali.</p>
+                <div class="cta-buttons">
+                    <a href="contatti.html" class="btn btn-primary btn-lg">
+                        <i class="fas fa-envelope"></i> Richiedi Informazioni
+                    </a>
+                    <a href="tel:+390521993741" class="btn btn-outline btn-lg">
+                        <i class="fas fa-phone"></i> 0521 993741
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="../assets/images/logo-white.png" alt="Maestri Srl">
+                    <p>Officine meccaniche specializzate in sistemi di lubrificazione e pompe per travaso fluidi dal 1950.</p>
+                </div>
+                <div class="footer-nav">
+                    <h4 class="footer-title">Navigazione</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="prodotti.html">Prodotti</a></li>
+                        <li><a href="chi-siamo.html">Chi Siamo</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="contatti.html">Contatti</a></li>
+                    </ul>
+                </div>
+                <div class="footer-nav">
+                    <h4 class="footer-title">Categorie</h4>
+                    <ul class="footer-links">
+                        <li><a href="grasso.html">Grasso</a></li>
+                        <li><a href="gasolio.html">Gasolio</a></li>
+                        <li><a href="olio.html">Olio</a></li>
+                        <li><a href="urea.html">Urea/AdBlue</a></li>
+                        <li><a href="antigelo.html">Antigelo</a></li>
+                        <li><a href="acqua-lavavetri.html">Acqua e Lavavetri</a></li>
+                        <li><a href="accessori.html">Accessori</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contatti</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone"></i> <a href="tel:+390521993741">0521 993741</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@maestrisrl.com">info@maestrisrl.com</a></li>
+                        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/393498393463">WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2024 Maestri Srl - Tutti i diritti riservati</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/393498393463" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="#" class="back-to-top"><i class="fas fa-chevron-up"></i></a>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/auth.js"></script>
+</body>
+</html>

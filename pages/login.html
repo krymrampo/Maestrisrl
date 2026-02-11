@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Area riservata clienti Maestri Srl: accedi per scaricare listini e documentazione tecnica.">
+    <title>Login Area Riservata - Maestri Srl</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+</head>
+<body class="login-page">
+    <main class="main" style="display: flex; align-items: center; justify-content: center; min-height: 100vh; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 2rem;">
+        <div class="login-container" style="width: 100%;">
+            <div class="login-header">
+                <a href="../index.html">
+                    <img src="../assets/images/logo.png" alt="Maestri Srl">
+                </a>
+                <h2>Area Riservata</h2>
+                <p>Accedi per scaricare listini e documentazione tecnica</p>
+            </div>
+
+            <div id="auth-message"></div>
+
+            <form id="login-form" class="login-form">
+                <div class="form-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="username" class="form-control" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" class="form-control" placeholder="Password" required>
+                </div>
+                <div class="form-group" style="display: flex; justify-content: space-between; align-items: center;">
+                    <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; font-weight: normal;">
+                        <input type="checkbox" id="remember" style="width: auto;"> Ricordami
+                    </label>
+                    <a href="#" style="font-size: 0.9rem;">Password dimenticata?</a>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">
+                    <i class="fas fa-sign-in-alt"></i> Accedi
+                </button>
+            </form>
+
+            <div class="login-footer">
+                <p>Non hai ancora un account? <a href="contatti.html">Richiedi accesso</a></p>
+                <p style="margin-top: 1rem;"><a href="../index.html"><i class="fas fa-arrow-left"></i> Torna al sito</a></p>
+            </div>
+
+            <div class="divider-text">Credenziali Demo</div>
+            <div style="background: var(--background-alt); padding: 1rem; border-radius: 8px; font-size: 0.85rem;">
+                <p style="margin: 0;"><strong>Cliente:</strong> cliente / maestri2024</p>
+                <p style="margin: 0.5rem 0 0;"><strong>Rivenditore:</strong> rivenditore / rivendita2024</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/auth.js"></script>
+</body>
+</html>

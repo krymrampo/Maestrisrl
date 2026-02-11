@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dashboard area riservata clienti Maestri Srl: documenti, listini e ordini.">
+    <title>Dashboard Clienti - Maestri Srl</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+</head>
+<body class="dashboard-page">
+    <header class="header">
+        <div class="container header-inner">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logo.png" alt="Maestri Srl">
+                <div class="logo-text">MAESTRI<span>OFFICINE MECCANICHE</span></div>
+            </a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li class="dropdown">
+                        <a href="prodotti.html" class="nav-link dropdown-toggle">Prodotti <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="grasso.html" class="dropdown-item"><i class="fas fa-oil-can"></i> Grasso</a></li>
+                            <li><a href="gasolio.html" class="dropdown-item"><i class="fas fa-gas-pump"></i> Gasolio</a></li>
+                            <li><a href="olio.html" class="dropdown-item"><i class="fas fa-droplet"></i> Olio</a></li>
+                            <li><a href="urea.html" class="dropdown-item"><i class="fas fa-tint"></i> Urea/AdBlue</a></li>
+                            <li><a href="antigelo.html" class="dropdown-item"><i class="fas fa-snowflake"></i> Antigelo</a></li>
+                            <li><a href="acqua-lavavetri.html" class="dropdown-item"><i class="fas fa-water"></i> Acqua e Lavavetri</a></li>
+                            <li><a href="accessori.html" class="dropdown-item"><i class="fas fa-cogs"></i> Accessori</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="chi-siamo.html" class="nav-link">Chi Siamo</a></li>
+                    <li><a href="news.html" class="nav-link">News</a></li>
+                    <li><a href="contatti.html" class="nav-link">Contatti</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn-icon" onclick="MaestriAuth.logout(); return false;" title="Logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+                <button class="menu-toggle"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="section">
+            <div class="container">
+                <div class="dashboard-grid">
+                    <!-- Sidebar -->
+                    <aside class="dashboard-sidebar">
+                        <div class="dashboard-user">
+                            <i class="fas fa-user-circle"></i>
+                            <h4>Nome Utente</h4>
+                            <p>Azienda</p>
+                        </div>
+                        <nav class="dashboard-menu">
+                            <a href="#documenti" class="active"><i class="fas fa-file-alt"></i> Documenti</a>
+                            <a href="#ordini"><i class="fas fa-shopping-cart"></i> I Miei Ordini</a>
+                            <a href="#profilo"><i class="fas fa-user"></i> Profilo</a>
+                            <a href="#" onclick="MaestriAuth.logout(); return false;"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </nav>
+                    </aside>
+
+                    <!-- Content -->
+                    <div class="dashboard-content">
+                        <h2 class="dashboard-title">Dashboard Cliente</h2>
+
+                        <!-- Stats -->
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-icon"><i class="fas fa-file-pdf"></i></div>
+                                <div class="stat-value" id="stat-documents">0</div>
+                                <div class="stat-label">Documenti</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon"><i class="fas fa-shopping-bag"></i></div>
+                                <div class="stat-value" id="stat-orders">0</div>
+                                <div class="stat-label">Ordini</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon"><i class="fas fa-euro-sign"></i></div>
+                                <div class="stat-value" id="stat-total">€0</div>
+                                <div class="stat-label">Totale Acquisti</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon"><i class="fas fa-percentage"></i></div>
+                                <div class="stat-value" id="stat-discount">-</div>
+                                <div class="stat-label">Sconto Applicato</div>
+                            </div>
+                        </div>
+
+                        <!-- Documents -->
+                        <section id="documenti" class="mb-4">
+                            <h3><i class="fas fa-file-alt"></i> Documenti Disponibili</h3>
+                            <p style="color: var(--text-light); margin-bottom: 1rem;">Scarica listini, cataloghi e documentazione tecnica riservata.</p>
+                            <div class="document-list" id="documents-list">
+                                <!-- Loaded by JS -->
+                            </div>
+                        </section>
+
+                        <!-- Orders -->
+                        <section id="ordini">
+                            <h3><i class="fas fa-shopping-cart"></i> Storico Ordini</h3>
+                            <p style="color: var(--text-light); margin-bottom: 1rem;">Visualizza lo storico dei tuoi ordini e il loro stato.</p>
+                            <div id="orders-list">
+                                <!-- Loaded by JS -->
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Order Detail Modal -->
+    <div class="modal-overlay" id="order-detail-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Dettaglio Ordine</h3>
+                <button class="modal-close" onclick="closeModal('order-detail-modal')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body" id="order-detail-body"></div>
+            <div class="modal-footer">
+                <button class="btn btn-ghost" onclick="closeModal('order-detail-modal')">Chiudi</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="../assets/images/logo-white.png" alt="Maestri Srl">
+                    <p>Officine meccaniche specializzate in sistemi di lubrificazione dal 1950.</p>
+                </div>
+                <div class="footer-nav">
+                    <h4 class="footer-title">Navigazione</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="prodotti.html">Prodotti</a></li>
+                        <li><a href="chi-siamo.html">Chi Siamo</a></li>
+                        <li><a href="contatti.html">Contatti</a></li>
+                    </ul>
+                </div>
+                <div class="footer-nav">
+                    <h4 class="footer-title">Area Clienti</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="MaestriAuth.logout(); return false;">Logout</a></li>
+                        <li><a href="contatti.html">Assistenza</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contatti</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone"></i> <a href="tel:+390521993741">0521 993741</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@maestrisrl.com">info@maestrisrl.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2024 Maestri Srl - Tutti i diritti riservati</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/catalog.js"></script>
+</body>
+</html>

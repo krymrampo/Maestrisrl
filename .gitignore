@@ -1,0 +1,25 @@
+# Python utility scripts (development only)
+*.py
+__pycache__/
+
+# Development reports & manifests
+data/foto_sito.txt
+data/media_link_report.json
+data/REPORT_CONFRONTO_SITO_VS_LOCALE.md
+data/schema_struttura_prodotti.json
+data/schema_struttura_prodotti.md
+data/prodotti_backup.json
+assets/uploads/_manifest*.json
+
+# Large PDF catalogs (>50MB, exceed GitHub limits)
+assets/uploads/2018/03/MAESTRI-GRASSO-1.pdf
+assets/uploads/2018/04/MAESTRI-OLIO.pdf
+assets/uploads/2017/04/MAESTRI-UREA.pdf
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+*.code-workspace
